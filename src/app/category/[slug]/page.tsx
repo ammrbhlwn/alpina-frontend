@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
 import BackBorder from '@/assets/images/icons/back-border.svg';
@@ -5,15 +7,24 @@ import Sls from '@/assets/images/thumbnails/sls-amg.png';
 import Flash from '@/assets/images/icons/flash.svg';
 import Star from '@/assets/images/icons/star.svg';
 import PistaSide from '@/assets/images/thumbnails/pista-side.png';
+import { useRouter } from 'next/navigation';
 
 export default function CategoryPage() {
+  const router = useRouter();
   return (
     <div>
       <div
         id="Top-Bar"
         className="flex items-center justify-between px-4 mt-[60px] z-10"
       >
-        <Image src={BackBorder} className="flex shrink-0 w-10" alt="icon" />
+        <Image
+          src={BackBorder}
+          className="flex shrink-0 w-10 cursor-pointer"
+          alt="icon"
+          onClick={() => {
+            router.push('/');
+          }}
+        />
         <div className="w-fit text-center">
           <p className="text-sm leading-[21px] text-alpina-grey">Browse Our</p>
           <p className="font-bold text-xl leading-[30px]">193,493 Tracks</p>
