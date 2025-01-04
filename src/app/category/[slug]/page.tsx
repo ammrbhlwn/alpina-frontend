@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import Image from 'next/image';
 import BackBorder from '@/assets/images/icons/back-border.svg';
 import Sls from '@/assets/images/thumbnails/sls-amg.png';
