@@ -6,14 +6,10 @@ import { useRouter } from 'next/navigation';
 import Star from '@/assets/images/icons/star.svg';
 import Flash from '@/assets/images/icons/flash.svg';
 import HuayraSide from '@/assets/images/thumbnails/huayra-side.png';
-import Avatar2 from '@/assets/images/avatars/avatar-2.png';
 import Avatar1 from '@/assets/images/avatars/avatar-1.png';
 import CpuCharge from '@/assets/images/icons/cpu-charge.svg';
 import Crown from '@/assets/images/icons/crown.svg';
 import Gallery1 from '@/assets/images/photos/gallery-1.png';
-import Gallery2 from '@/assets/images/photos/gallery-2.png';
-import Gallery3 from '@/assets/images/photos/gallery-3.png';
-import Gallery4 from '@/assets/images/photos/gallery-4.png';
 
 export default function BrowseDetailPage() {
   const router = useRouter();
