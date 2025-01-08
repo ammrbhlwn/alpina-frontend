@@ -3,7 +3,7 @@ import axiosInstance from '@/utils/axiosInstance';
 export async function getCategories() {
   const res = await axiosInstance.get(`categories`);
 
-  return res.data;
+  return res.data.data;
 }
 
 export async function getVehiclesByCategory({ slug }: { slug: string | null }) {

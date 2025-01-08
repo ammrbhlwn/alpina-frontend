@@ -3,13 +3,13 @@ import axiosInstance from '@/utils/axiosInstance';
 export async function getVehicles() {
   const res = await axiosInstance.get(`vehicles`);
 
-  return res.data;
+  return res.data.data;
 }
 
 export async function getPopularVehicles() {
   const res = await axiosInstance.get(`vehicles/popular`);
 
-  return res.data;
+  return res.data.data;
 }
 
 export async function getVehiclesBySlug({ slug }: { slug: string | null }) {
