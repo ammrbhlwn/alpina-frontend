@@ -1,40 +1,24 @@
-'use client';
+import { HomeView } from '@/sections/home';
+import { getCategories, getPopularVehicles, getVehicles } from '@/actions';
 
-import Image from 'next/image';
-import Logo from '@/assets/images/logos/logo.svg';
-import LocationBorder from '@/assets/images/icons/location-border.svg';
-import Building4 from '@/assets/images/icons/building-4.svg';
-import Sls from '@/assets/images/thumbnails/sls-amg.png';
-import Flash from '@/assets/images/icons/flash.svg';
-import Star from '@/assets/images/icons/star.svg';
-import PistaSide from '@/assets/images/thumbnails/pista-side.png';
-import { useRouter } from 'next/navigation';
+export const metadata = {
+  title: 'Home | Alpina',
+  description: 'Browse the best vehicles and categories',
+};
 
-export default function HomePage() {
-  const router = useRouter();
+export default async function HomePage() {
+  const categories = await getCategories();
+  const popularVehicles = await getPopularVehicles();
+  const vehicles = await getVehicles();
+
   return (
-    <div>
-      <div
-        id="Top-Bar"
-        className="flex items-center justify-between px-4 mt-[60px] z-10"
-      >
-        <Image src={Logo} className="flex shrink-0 w-[126px]" alt="icon" />
-        <div className="flex items-center justify-end gap-3">
-          <div className="text-right">
-            <p className="text-sm leading-[21px] text-alpina-grey">
-              Your Location
-            </p>
-            <p className="font-semibold">Indonesia</p>
-          </div>
-          <Image
-            src={LocationBorder}
-            className="w-10 h-10 flex shrink-0"
-            alt="icon"
-          />
-        </div>
-      </div>
-
-      <section
+    <>
+      <HomeView
+        categories={categories.data}
+        vehicles={vehicles.data}
+        popularVehicles={popularVehicles.data}
+      />
+      {/* <section
         id="Category"
         className="flex flex-col py-5 gap-3 bg-[#F9FAFB] mt-[30px]"
       >
@@ -139,7 +123,7 @@ export default function HomePage() {
             </div>
           </a>
         </div>
-      </section>
-    </div>
+      </section> */}
+    </>
   );
 }
