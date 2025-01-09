@@ -32,7 +32,7 @@ import Bca from '@/assets/images/logos/bca.svg';
 import Logo from '@/assets/images/logos/logo.svg';
 
 export default function BookingPage() {
-  const [step, setStep] = useState<number>(4);
+  const [step, setStep] = useState<number>(1);
 
   const renderStep = () => {
     if (step === 1) {
