@@ -50,7 +50,6 @@ export const PaymentSent = () => {
           />
         </label>
 
-        {/* Accordion content */}
         {isOpen && (
           <>
             {banks.map((bank) => (

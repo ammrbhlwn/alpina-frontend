@@ -47,7 +47,6 @@ export function FormDelivery({
         email={watch('email')}
         phone={watch('phone')}
       />
-      {/* Added form below */}
       <div className="flex flex-col gap-4 mt-5 z-10">
         <div className="flex flex-col py-5 px-4 gap-4 bg-[#F9FAFB]">
           <DeliveryOption />
