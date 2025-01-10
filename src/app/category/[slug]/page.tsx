@@ -8,7 +8,7 @@ type Props = {
 };
 
 export async function generateMetadata({ params }: Props) {
-  const { slug } = params;
+  const { slug } = await params;
 
   return {
     title: `${slug.charAt(0).toUpperCase() + slug.slice(1)} Category | Alpina`,
@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function BrowseByCategory({ params }: Props) {
   const popularVehicles = await getPopularVehicles();
-  const vehiclesByCategory = await getVehiclesByCategory(params);
+  const vehiclesByCategory = await getVehiclesByCategory(await params);
 
   return (
     <BrowseVehiclesByCategoryView
