@@ -30,7 +30,6 @@ export const PaymentDetail = ({
     setIsOpen(!isOpen);
   };
 
-  // Define the payment details dynamically
   const paymentDetails = [
     {
       label: 'Price',
@@ -91,12 +90,8 @@ export const PaymentDetail = ({
           }}
           className="overflow-hidden transition-all duration-300"
         >
-          {/* Map through paymentDetails array and render each detail */}
           {paymentDetails.map((detail, index) => (
-            <div
-              key={index}
-              className="flex items-center justify-between mb-4" // Added margin-bottom
-            >
+            <div key={index} className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-[6px]">
                 <Image
                   src={detail.icon}

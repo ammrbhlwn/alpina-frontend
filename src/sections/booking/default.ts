@@ -1,7 +1,6 @@
 import { Vehicle } from '@/types';
 import * as yup from 'yup';
 
-// Validation schema using Yup based on FormValues type
 export const validationSchema = yup.object().shape({
   vehicle_id: yup.number().required().nullable(),
   name: yup
@@ -31,14 +30,14 @@ export const validationSchema = yup.object().shape({
     .matches(/^[0-9]+$/, 'Phone number must only contain digits'),
   proof: yup
     .mixed()
-    .nullable() // Allow proof to be null initially
+    .nullable()
     .required('Please upload a proof file')
     .test('fileSize', 'File size is too large (max 2MB)', (value) => {
-      if (!value) return true; // If no file, skip size validation
-      return (value as File).size <= 2000000; // Max file size 2MB
+      if (!value) return true;
+      return (value as File).size <= 2000000;
     })
     .test('fileType', 'Unsupported file format', (value) => {
-      if (!value) return true; // If no file, skip type validation
+      if (!value) return true;
       return ['image/jpeg', 'image/png', 'application/pdf'].includes(
         (value as File).type
       );

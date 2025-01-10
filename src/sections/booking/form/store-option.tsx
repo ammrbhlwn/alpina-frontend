@@ -34,19 +34,17 @@ export const StoreOption = () => {
   }, []);
 
   const handleStoreChange = (storeId: number) => {
-    setValue('alpina_store_id', storeId); // Update the selected store
-    clearErrors('alpina_store_id'); // Clear the error when a store is selected
+    setValue('alpina_store_id', storeId);
+    clearErrors('alpina_store_id');
   };
 
-  // Safely extract error message as a string
   const errorMessage = errors?.alpina_store_id?.message as string | undefined;
 
   return (
     <div className="tabs-contents">
       <div id="pickup-tab" className="tabcontent flex flex-col gap-4">
         {isLoading
-          ? // Render skeleton loaders while data is loading
-            Array.from({ length: 3 }).map((_, index) => (
+          ? Array.from({ length: 3 }).map((_, index) => (
               <StoreOptionSkeleton key={index} />
             ))
           : optionStores.map((store) => (
@@ -56,9 +54,7 @@ export const StoreOption = () => {
                   Number(selectedStore) === store.id
                     ? 'ring-1 ring-alpina-blue'
                     : ''
-                } ${
-                  errors.alpina_store_id ? 'ring-1 ring-red-500' : '' // Add red border if there's an error
-                }`}
+                } ${errors.alpina_store_id ? 'ring-1 ring-red-500' : ''}`}
               >
                 <div className="flex items-center gap-[14px]">
                   <div className="w-[90px] h-[90px] rounded-[20px] flex shrink-0 overflow-hidden bg-[#1D68B4]">
@@ -72,7 +68,6 @@ export const StoreOption = () => {
                   </div>
                   <div className="flex flex-col gap-1 w-full">
                     <p className={`font-bold`}>{store.name}</p>{' '}
-                    {/* Red text if there's an error */}
                     <p className="text-sm leading-[21px]">{store.address}</p>
                   </div>
                   <div className="w-6 h-6 flex shrink-0">
@@ -90,9 +85,9 @@ export const StoreOption = () => {
                   value={store.id}
                   {...register('alpina_store_id', {
                     required: 'Please select a store',
-                  })} // Add required validation with an error message
-                  onChange={() => handleStoreChange(store.id)} // Use the handler to update store and clear errors
-                  checked={Number(selectedStore) === store.id} // Ensure proper control of the checked state
+                  })}
+                  onChange={() => handleStoreChange(store.id)}
+                  checked={Number(selectedStore) === store.id}
                   className="absolute -z-10 top-1/2 left-1/2 opacity-0"
                 />
               </label>

@@ -17,17 +17,14 @@ export function FormSuccess({ booking }: Props) {
       className="relative flex flex-col w-full max-w-[640px] min-h-screen mx-auto bg-white"
     >
       <div className="flex flex-col items-center h-fit pt-[60px] pb-[30px] m-auto">
-        {/* Logo */}
         <Image src={Logo} alt="logo" width={100} height={100} />
 
-        {/* Heading */}
         <h1 className="text-center mt-[30px] font-bold text-2xl leading-9">
           Booking is Finished,
           <br />
           Congratulations!
         </h1>
 
-        {/* Thumbnail */}
         <div className="w-full aspect-[393/300] overflow-hidden mt-[30px] pl-4">
           <Image
             src={`${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${booking?.vehicle?.thumbnail}`}
@@ -45,7 +42,6 @@ export function FormSuccess({ booking }: Props) {
               pemesanan mobilmu
             </p>
 
-            {/* Booking ID */}
             <div className="group flex items-center h-[62px] rounded-full border border-[#EFF2F7] p-[10px_24px] gap-[10px] bg-[#F9FAFB] focus-within:ring-1 focus-within:ring-[#362EED] transition-all duration-300">
               <Image
                 src={Note}
@@ -63,7 +59,6 @@ export function FormSuccess({ booking }: Props) {
             </div>
           </div>
 
-          {/* Buttons */}
           <div className="flex flex-col gap-3">
             <Button onClick={() => router.push('/')}>Explore Again</Button>
 

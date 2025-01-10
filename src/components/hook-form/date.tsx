@@ -1,21 +1,19 @@
 import { useRef } from 'react';
 import Image from 'next/image';
 import { Controller, useFormContext } from 'react-hook-form';
-import CalendarIcon from '@/assets/images/icons/calendar.svg'; // Import your icon
+import CalendarIcon from '@/assets/images/icons/calendar.svg';
 
 type Props = {
   name: string;
   label?: string;
-  // rules?: any;
 };
 
 export function DateInput({ name, label }: Props) {
   const {
     control,
     formState: { errors },
-  } = useFormContext(); // Get form context
+  } = useFormContext();
 
-  // Safely extract error message as a string
   const errorMessage = errors[name]?.message as string | undefined;
 
   const dateInputRef = useRef<HTMLInputElement>(null);
@@ -23,9 +21,9 @@ export function DateInput({ name, label }: Props) {
   const handleLabelClick = (
     e: React.MouseEvent<HTMLLabelElement, MouseEvent>
   ) => {
-    e.preventDefault(); // Ensure it doesn't trigger default behaviors like form submission
+    e.preventDefault();
     if (dateInputRef.current) {
-      dateInputRef.current.showPicker(); // Call showPicker only after the click event
+      dateInputRef.current.showPicker();
     }
   };
 
@@ -39,7 +37,6 @@ export function DateInput({ name, label }: Props) {
         }`}
         onClick={handleLabelClick}
       >
-        {/* Calendar Icon */}
         <Image
           src={CalendarIcon}
           width={24}
@@ -52,11 +49,10 @@ export function DateInput({ name, label }: Props) {
           <Controller
             name={name}
             control={control}
-            // rules={rules}
             render={({ field }) => (
               <input
                 type="date"
-                {...field} // Automatically wire up onChange, value, onBlur, etc.
+                {...field}
                 ref={dateInputRef}
                 className={`peer appearance-none outline-none bg-transparent font-semibold invalid:absolute invalid:-z-10 [&::-webkit-calendar-picker-indicator]:!opacity-0 ${
                   errorMessage ? 'border-red-500' : ''
@@ -65,14 +61,12 @@ export function DateInput({ name, label }: Props) {
               />
             )}
           />
-          {/* Label */}
           <p className="text-alpina-light-grey peer-valid:text-xs peer-valid:leading-[18px]">
             {label}
           </p>
         </div>
       </label>
 
-      {/* Safely render the error message as a string */}
       {errorMessage && (
         <p className="text-red-500 text-xs mt-1">{errorMessage}</p>
       )}

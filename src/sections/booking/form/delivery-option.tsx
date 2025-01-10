@@ -10,7 +10,7 @@ const deliveryOptions = [
 
 export const DeliveryOption = () => {
   const { register, watch } = useFormContext();
-  const selectedDeliveryType = watch('deliveryType'); // Watch for changes in the form field
+  const selectedDeliveryType = watch('deliveryType');
 
   return (
     <div>

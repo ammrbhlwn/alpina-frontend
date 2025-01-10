@@ -26,33 +26,28 @@ export function TopBar({ step, title, subTitle, prevStep }: Props) {
 
   return (
     <>
-      {/* Backdrop section */}
       <div
         className={`absolute backdrop w-full ${
           step === 1 ? 'h-[200px]' : 'h-[400px]'
-        } bg-alpina-blue`} // Ensure z-index is behind TopBar
+        } bg-alpina-blue`}
       />
 
-      {/* Top Bar section */}
       <div
         id="Top-Bar"
         className="flex items-center justify-between px-4 mt-[60px] z-[50]"
       >
-        {/* Back button */}
         <Image
           src={BackBorder}
           className="flex shrink-0 w-10 cursor-pointer"
           alt="icon"
-          onClick={handleBack} // Ensure dynamic routing
+          onClick={handleBack}
         />
 
-        {/* Title and Subtitle */}
         <div className="w-fit text-center text-white">
           <p className="text-sm leading-[21px]">{title}</p>
           <p className="font-bold text-xl leading-[30px]">{subTitle}</p>
         </div>
 
-        {/* Dummy button to balance the layout */}
         <div className="dummy-btn w-10"></div>
       </div>
     </>

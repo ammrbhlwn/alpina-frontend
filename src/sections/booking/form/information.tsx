@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { FormHeaderInformation } from './header';
-import { TextInput, DateInput } from '@/components/hook-form'; // Import TextInput component
+import { TextInput, DateInput } from '@/components/hook-form';
 import { TopBar } from '../top-bar';
 import SecurityUserBlack from '@/assets/images/icons/security-user-black.svg';
 import SMS from '@/assets/images/icons/sms.svg';

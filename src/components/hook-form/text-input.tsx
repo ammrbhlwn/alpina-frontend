@@ -19,13 +19,12 @@ export function TextInput({
   placeholder,
   fullWidth = false,
 }: Props) {
-  const formHook = useFormContext(); // Get form context
+  const formHook = useFormContext();
   const {
     control,
     formState: { errors },
-  } = formHook; // Destructure values from formHook
+  } = formHook;
 
-  // Safely extract error message as a string
   const errorMessage = errors[name]?.message as string | undefined;
 
   return (
@@ -55,7 +54,7 @@ export function TextInput({
             render={({ field }) => (
               <input
                 type={type}
-                {...field} // Automatically wire up onChange, value, onBlur, etc.
+                {...field}
                 placeholder={placeholder}
                 className={`peer appearance-none outline-none w-full !bg-transparent font-semibold placeholder:font-normal placeholder:text-alpina-light-grey ${
                   errorMessage ? 'border-red-500' : ''
@@ -68,7 +67,7 @@ export function TextInput({
           </p>
         </div>
       </label>
-      {/* Safely render the error message as a string */}
+
       {errorMessage && (
         <p className="text-red-500 text-xs mt-1">{errorMessage}</p>
       )}

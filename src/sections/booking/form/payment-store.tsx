@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { useFormContext } from 'react-hook-form';
-import ArrowCircleDown from '@/assets/images/icons/arrow-circle-down.svg'; // Ensure this import is correct
+import ArrowCircleDown from '@/assets/images/icons/arrow-circle-down.svg';
 import { Store } from '@/types';
 import { useEffect, useState, useRef } from 'react';
 import axiosInstance from '@/utils/axiosInstance';
@@ -9,7 +9,7 @@ export const PaymentStore = () => {
   const { watch } = useFormContext();
   const selectedStore = watch('alpina_store_id');
   const [isOpen, setIsOpen] = useState<boolean>(true);
-  const contentRef = useRef<HTMLDivElement>(null); // Use ref to access content height
+  const contentRef = useRef<HTMLDivElement>(null);
   const [optionStores, setOptionStores] = useState<Store[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
@@ -58,7 +58,6 @@ export const PaymentStore = () => {
                   height={100}
                 />
               </label>
-              {/* Content container */}
               <div
                 ref={contentRef}
                 style={{

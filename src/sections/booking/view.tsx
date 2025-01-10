@@ -58,16 +58,14 @@ export function BookingView({ vehiclesBySlug }: Props) {
     const formData = new FormData();
     console.log(data);
 
-    // Append all fields to the FormData
     formData.append('total_amount', data.total_amount.toString());
     formData.append('insurance', data.insurance.toString());
     formData.append('discount', data.discount.toString());
     formData.append('total_tax', data.total_tax.toString());
     formData.append('price', data.price.toString());
 
-    // Append file if it exists
     if (data.proof) {
-      formData.append('proof', data.proof); // Assuming `proof` is a File object
+      formData.append('proof', data.proof);
     }
 
     formData.append('alpina_store_id', data.alpina_store_id);

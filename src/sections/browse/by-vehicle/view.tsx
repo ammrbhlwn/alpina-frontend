@@ -28,7 +28,6 @@ export function BrowseVehiclesBySlugView({ vehiclesBySlug }: Props) {
           </div>
         </div>
 
-        {/* Vehicle Title and Rating */}
         <div
           id="Title"
           className="flex items-center justify-between px-4 mt-[10px]"
@@ -56,26 +55,21 @@ export function BrowseVehiclesBySlugView({ vehiclesBySlug }: Props) {
           </div>
         </div>
 
-        {/* Vehicle Specifications */}
         <VehicleSpecs
           cc={vehiclesBySlug.cc}
           horsePower={vehiclesBySlug.horse_power}
           maxSpeed={vehiclesBySlug.max_speed}
         />
 
-        {/* About Section */}
         <section id="About" className="flex flex-col gap-[6px] px-4">
           <h2 className="font-bold">About</h2>
           <p className="leading-[28px]">{vehiclesBySlug.about}</p>
         </section>
 
-        {/* Vehicle Gallery */}
         <VehicleGallery photos={vehiclesBySlug.photos ?? []} />
 
-        {/* Testimonials */}
         <VehicleTestimonials testimonials={vehiclesBySlug.testimonials ?? []} />
 
-        {/* Bottom CTA */}
         <BottomCTA
           price={vehiclesBySlug.price}
           duration={vehiclesBySlug.duration}

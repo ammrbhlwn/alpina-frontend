@@ -1,4 +1,3 @@
-// components/FileUpload.tsx
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { Controller, useFormContext, RegisterOptions } from 'react-hook-form';
@@ -21,7 +20,6 @@ export const FileUpload = ({
   } = useFormContext();
   const [fileName, setFileName] = useState<string | null>(null);
 
-  // Safely extract error message
   const errorMessage = errors[name]?.message as string | undefined;
 
   return (
@@ -50,19 +48,17 @@ export const FileUpload = ({
                 onChange={(e) => {
                   const file = e.target.files?.[0];
                   setFileName(file ? file.name : null);
-                  field.onChange(file); // Only pass the file object, not the value
+                  field.onChange(file);
                 }}
               />
             )}
           />
-          {/* Show file name if available, else show placeholder */}
           <p className="text-alpina-light-grey peer-valid:text-xs peer-valid:leading-[18px]">
             {fileName || label}
           </p>
         </div>
       </label>
 
-      {/* Error message */}
       {errorMessage && (
         <p className="text-red-500 text-xs mt-1">{errorMessage}</p>
       )}

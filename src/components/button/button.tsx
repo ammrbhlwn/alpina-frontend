@@ -1,6 +1,6 @@
 import React from 'react';
 
-type Variant = 'blue' | 'black' | 'red' | 'green'; // Add as many color variants as you want
+type Variant = 'blue' | 'black' | 'red' | 'green';
 
 type Props = {
   onClick?: () => void;
